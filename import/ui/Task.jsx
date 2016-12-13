@@ -8,8 +8,11 @@ export default class Task extends Component {
                 <div>
                     {this.props.task.key}
                 </div>
-                <div className="task-tbl-column task-text">
-                    {this.props.task.text}
+                <div className="task-tbl-column task-title">
+                    {this.props.task.title}
+                </div>
+                <div className="task-tbl-column task-description">
+                    {this.props.task.description}
                 </div>
                 <div className="task-tbl-column task-status">
                     <select value={this.props.task.status} onChange={this.props.handleChange.bind(this, this.props.task)} >
