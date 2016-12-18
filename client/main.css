@@ -14,15 +14,26 @@ body {
 
     padding: 0;
     margin: 0;
-
     font-size: 14px;
 }
 
 .container {
-    max-width: 600px;
+    max-width: 1200px;
     margin: 0 auto;
     min-height: 100%;
     background: white;
+}
+.task-container {
+    display: inline-block;
+    width: 100%;
+}
+.todo-task-list {
+    width: 25%;
+    float: left;
+}
+.inprogress-task-list {
+    width: 25%;
+    float: left;
 }
 
 header {

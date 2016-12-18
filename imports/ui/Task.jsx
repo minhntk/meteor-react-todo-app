@@ -19,7 +19,7 @@ export default class Task extends Component {
                         <option>Choose your option</option>
                         <option value="TODO">TODO</option>
                         <option value="IN-PROGRESS">IN PROGRESS</option>
-                        <option value="FIXED">FIXED</option>
+                        <option value="READY-TO-TEST">READY TO TEST</option>
                         <option value="DONE">DONE</option>
                     </select>
 
