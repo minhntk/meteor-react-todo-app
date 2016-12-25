@@ -5,9 +5,8 @@ export default class TaskForm extends Component {
 
     render(){
         return (
-            <div id="task-form-modal" class="modal">
-                <div class="modal-content">
-
+            <div className="modal">
+                <div className="modal-content">
                 </div>
             </div>
         );

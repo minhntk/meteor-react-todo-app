@@ -1,0 +1,36 @@
+
+.task-container {
+  display: inline-block;
+  width: 100%;
+
+  .todo-task-list {
+    width: 23%;
+    float: left;
+    background-color: #cccccc;
+    border-radius: 3px;
+    margin: 15px 0 0 15px;
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .task-list-title {
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .task-title {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .task-content {
+        position: relative;
+        list-style: none;
+        margin: 5px;
+        padding: 10px;
+        border: #eee solid 1px;
+        border-radius: 3px;
+        background-color: #eee;
+    }
+  }
+}

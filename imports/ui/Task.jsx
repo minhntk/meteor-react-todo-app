@@ -2,9 +2,10 @@ import React, { Component, PropTypes } from 'react';
 
 // Task component - represents a single todo item
 export default class Task extends Component {
+
     render() {
         return (
-            <li className="task-content">
+            <li className="task-content" onClick={this.props.openTaskModal.bind(this, this.props.task)}>
                 <div>
                     {this.props.task.key}
                 </div>

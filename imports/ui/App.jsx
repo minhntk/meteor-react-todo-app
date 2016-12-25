@@ -1,9 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import ReactDOM from 'react-dom';
-import ToDoTaskList from './ToDoTaskList.jsx';
-import InProgressTasksList from './InProgressTasksList.jsx';
-InProgressTasksList
+import TaskListContainer from './TaskListContainer.jsx';
 
 import { TaskDb } from '../api/TaskApi.js';
 import Task from './Task.jsx';
@@ -18,15 +16,12 @@ class App extends Component {
         event.preventDefault();
 
         // Find the text field via the React ref
-        const taskTitle = this.refs.taskTitle.value;
-        const taskDescription = this.refs.taskDescription.value;
+        const task = {
+            title:          this.refs.taskTitle.value,
+            description:    this.refs.taskDescription.value
+        };
+        Meteor.call('tasks.insert', task);
 
-        TaskDb.insert({
-            title: taskTitle,
-            description: taskDescription,
-            status: "TODO",
-            createdAt: new Date(), // current time
-        });
 
         // Clear form
         ReactDOM.findDOMNode(this.refs.taskTitle).value = '';
@@ -40,15 +35,17 @@ class App extends Component {
                 </header>
                 <AccountsUIWrapper />
                 <div className="task-container">
-                    <ToDoTaskList status="TODO"/>
-                    <InProgressTasksList />
+                    <TaskListContainer status="TODO"/>
+                    <TaskListContainer status="IN-PROGRESS"/>
+                    <TaskListContainer status="READY-TO-TEST"/>
+                    <TaskListContainer status="DONE"/>
                 </div>
                 <div>
                     <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
-                        <div>
+                        <div className="add-form-title">
                             <input type="text" ref="taskTitle" placeholder="Title" />
                         </div>
-                        <div>
+                        <div className="add-form-description">
                             <textarea ref="taskDescription" placeholder="Description" />
                         </div>
                         <input type="submit" value="Submit" />
